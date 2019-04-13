@@ -1,6 +1,6 @@
 import os
 
-PLAYER_STRING = "sox -t mp3 {} -t wav - | sudo /etc/PiFmRds/src/pi_fm_rds -freq {} -audio -"
+PLAYER_STRING = "sox -t mp3 {} -t wav - | sudo /etc/PiFmRds/src/pi_fm_rds -freq {} -audio - >> /dev/null"
 
 def getFileContents(dirPath):
     files = []
