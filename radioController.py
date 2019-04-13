@@ -16,7 +16,7 @@ def playSong(filePath,freq):
 
 def playPlaylist(playlist,freq, shuffle=True):
     if(shuffle):
-        playlist = random.shuffle(playlist)
+        random.shuffle(playlist)
     for filePath in playlist:
         print("Now Playing: {}".format(filePath.split('/')[-1]))
         playSong(filePath,freq)
