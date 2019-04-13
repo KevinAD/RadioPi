@@ -1,4 +1,4 @@
-import os
+import os, random
 
 PLAYER_STRING = "sox -t mp3 {} -t wav - | sudo /etc/PiFmRds/src/pi_fm_rds -freq {} -audio - >> /dev/null"
 
@@ -14,9 +14,12 @@ def getFileContents(dirPath):
 def playSong(filePath,freq):
     os.system(PLAYER_STRING.format(filePath,freq))
 
-def playPlaylist(playlist,freq):
+def playPlaylist(playlist,freq, shuffle=True):
+    if(shuffle):
+        playlist = random.shuffle(playlist)
     for filePath in playlist:
         print("Now Playing: {}".format(filePath.split('/')[-1]))
         playSong(filePath,freq)
+
 
 playPlaylist(getFileContents("mp3"),'87.5')
