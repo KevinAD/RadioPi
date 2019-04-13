@@ -14,5 +14,9 @@ def getFileContents(dirPath):
 def playSong(filePath,freq):
     os.system(PLAYER_STRING.format(filePath,freq))
 
+def playPlaylist(playlist,freq):
+    for filePath in playlist:
+        print("Now Playing: {}".format(filePath.split('/')[-1]))
+        playSong(filePath,freq)
 
-playSong(getFileContents("mp3")[0],'87.5')
+playPlaylist(getFileContents("mp3"),'87.5')
